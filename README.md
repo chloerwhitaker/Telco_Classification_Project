@@ -17,6 +17,6 @@
         - Do the customers that churn have a higher monthly cost than those that do not churn? 
         - Do the customers that churn havel more or less lines than those how don't? 
 
-    ## Data Dictionary
-
+    ## Data Dictionary 
+    
     Here is a list of every variable used in this project along with its meaning. 
