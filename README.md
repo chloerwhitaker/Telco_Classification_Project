@@ -20,8 +20,3 @@
     ## Data Dictionary
 
     Here is a list of every variable used in this project along with its meaning. 
-
-   |------------|---------
-   | Variable   |
-   | Churned    |
-   |            |
