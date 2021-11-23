@@ -43,33 +43,6 @@ def new_telco_data():
     return df
 
 
-# In[32]:
-
-
-#def get_telco_data():
-#    '''
-#    This function checks to see if the telco data is already stored
-#    locally as a csv. 
-#    If not, it reads in the Telco data from the Codeup database
-#    and writes it to a csv file
-#    If it exists, it reads the existing file.
-#    '''
-#    if os.path.isfile('telco_wrangled.csv'):
-#        
-#        # Reads this file if it already exists.
-#        df = pd.read_csv('telco_wrangled.csv', index_col=0)
-#        
-#    else:
-#        
-#        # If csv not already local, fresh data is read into a DataFrame
-#        df = wrangle_telco()
-#        
-#        # Cache data
-#        df.to_csv('telco_wrangled.csv')
-#        
-#    return df
-
-
 # In[ ]:
 
 
