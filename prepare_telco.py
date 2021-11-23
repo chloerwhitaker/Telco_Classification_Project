@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[50]:
+# In[1]:
 
 
 import acquire_telco
@@ -17,20 +17,20 @@ from sklearn.model_selection import train_test_split
 np.random.seed(123)
 
 
-# In[51]:
+# In[2]:
 
 
 df = acquire_telco.new_telco_data()
 df.head()
 
 
-# In[52]:
+# In[3]:
 
 
 df.dtypes
 
 
-# In[53]:
+# In[4]:
 
 
 def wrangle_telco(df):
@@ -79,27 +79,28 @@ def wrangle_telco(df):
     df_with_dummies = pd.concat([df, dummies_df], axis=1)
     
     # Drop the object columns we created dummies from 
-    df = df_with_dummies.drop(columns=['contract_type', 'internet_service_type', 'payment_type'])
+    # (Dont want for explore stage)
+    # df = df_with_dummies.drop(columns=['contract_type', 'internet_service_type', 'payment_type'])
    
-
+    # Fix dummies column names
     df = df.rename(columns={'contract_type_Month-to-month': 'contract_type_month_to_month', 'contract_type_One year': 'contract_type_one_year', 'contract_type_Two year': 'contract_type_two_year', 'internet_service_type_Fiber optic': 'internet_service_type_fiber_optic', 'payment_type_Bank transfer (automatic)': 'payment_type_bank_transfer_auto', 'payment_type_Credit card (automatic)': 'payment_type_credit_card_auto', 'payment_type_Electronic check': 'payment_type_electronic_check', 'payment_type_Mailed check': 'payment_type_mailed_check'})
     return df
 
 
-# In[54]:
+# In[5]:
 
 
 telco_cleaned = wrangle_telco(df)
 telco_cleaned.head()
 
 
-# In[55]:
+# In[6]:
 
 
 telco_cleaned.dtypes
 
 
-# In[56]:
+# In[7]:
 
 
 def train_validate_test_split(telco_cleaned, seed=123):
@@ -121,25 +122,25 @@ def train_validate_test_split(telco_cleaned, seed=123):
     return train, validate, test
 
 
-# In[57]:
+# In[8]:
 
 
 train, validate, test = train_validate_test_split(telco_cleaned)
 
 
-# In[58]:
+# In[9]:
 
 
 train.head()
 
 
-# In[59]:
+# In[10]:
 
 
 train.dtypes
 
 
-# In[60]:
+# In[11]:
 
 
 def clean_split_telco_data(df):
@@ -152,14 +153,20 @@ def clean_split_telco_data(df):
     return train, validate, test
 
 
-# In[61]:
+# In[12]:
 
 
 train, validate, test = clean_split_telco_data(df)
 
 
-# In[62]:
+# In[13]:
 
 
 train.head()
+
+
+# In[ ]:
+
+
+
 
