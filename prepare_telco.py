@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[50]:
 
 
 import acquire_telco
@@ -17,20 +17,20 @@ from sklearn.model_selection import train_test_split
 np.random.seed(123)
 
 
-# In[2]:
+# In[51]:
 
 
 df = acquire_telco.new_telco_data()
 df.head()
 
 
-# In[4]:
+# In[52]:
 
 
 df.dtypes
 
 
-# In[18]:
+# In[53]:
 
 
 def wrangle_telco(df):
@@ -81,23 +81,25 @@ def wrangle_telco(df):
     # Drop the object columns we created dummies from 
     df = df_with_dummies.drop(columns=['contract_type', 'internet_service_type', 'payment_type'])
    
+
+    df = df.rename(columns={'contract_type_Month-to-month': 'contract_type_month_to_month', 'contract_type_One year': 'contract_type_one_year', 'contract_type_Two year': 'contract_type_two_year', 'internet_service_type_Fiber optic': 'internet_service_type_fiber_optic', 'payment_type_Bank transfer (automatic)': 'payment_type_bank_transfer_auto', 'payment_type_Credit card (automatic)': 'payment_type_credit_card_auto', 'payment_type_Electronic check': 'payment_type_electronic_check', 'payment_type_Mailed check': 'payment_type_mailed_check'})
     return df
 
 
-# In[6]:
+# In[54]:
 
 
 telco_cleaned = wrangle_telco(df)
 telco_cleaned.head()
 
 
-# In[7]:
+# In[55]:
 
 
 telco_cleaned.dtypes
 
 
-# In[19]:
+# In[56]:
 
 
 def train_validate_test_split(telco_cleaned, seed=123):
@@ -119,25 +121,25 @@ def train_validate_test_split(telco_cleaned, seed=123):
     return train, validate, test
 
 
-# In[12]:
+# In[57]:
 
 
 train, validate, test = train_validate_test_split(telco_cleaned)
 
 
-# In[13]:
+# In[58]:
 
 
 train.head()
 
 
-# In[14]:
+# In[59]:
 
 
 train.dtypes
 
 
-# In[22]:
+# In[60]:
 
 
 def clean_split_telco_data(df):
@@ -150,20 +152,14 @@ def clean_split_telco_data(df):
     return train, validate, test
 
 
-# In[23]:
+# In[61]:
 
 
 train, validate, test = clean_split_telco_data(df)
 
 
-# In[24]:
+# In[62]:
 
 
 train.head()
-
-
-# In[ ]:
-
-
-
 
