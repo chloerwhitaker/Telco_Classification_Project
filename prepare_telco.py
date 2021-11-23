@@ -30,7 +30,7 @@ df.head()
 df.dtypes
 
 
-# In[4]:
+# In[14]:
 
 
 def wrangle_telco(df):
@@ -83,18 +83,18 @@ def wrangle_telco(df):
     # df = df_with_dummies.drop(columns=['contract_type', 'internet_service_type', 'payment_type'])
    
     # Fix dummies column names
-    df = df.rename(columns={'contract_type_Month-to-month': 'contract_type_month_to_month', 'contract_type_One year': 'contract_type_one_year', 'contract_type_Two year': 'contract_type_two_year', 'internet_service_type_Fiber optic': 'internet_service_type_fiber_optic', 'payment_type_Bank transfer (automatic)': 'payment_type_bank_transfer_auto', 'payment_type_Credit card (automatic)': 'payment_type_credit_card_auto', 'payment_type_Electronic check': 'payment_type_electronic_check', 'payment_type_Mailed check': 'payment_type_mailed_check'})
+    df = df_with_dummies.rename(columns={'contract_type_Month-to-month': 'contract_type_month_to_month', 'contract_type_One year': 'contract_type_one_year', 'contract_type_Two year': 'contract_type_two_year', 'internet_service_type_Fiber optic': 'internet_service_type_fiber_optic', 'payment_type_Bank transfer (automatic)': 'payment_type_bank_transfer_auto', 'payment_type_Credit card (automatic)': 'payment_type_credit_card_auto', 'payment_type_Electronic check': 'payment_type_electronic_check', 'payment_type_Mailed check': 'payment_type_mailed_check'})
     return df
 
 
-# In[5]:
+# In[15]:
 
 
 telco_cleaned = wrangle_telco(df)
 telco_cleaned.head()
 
 
-# In[6]:
+# In[16]:
 
 
 telco_cleaned.dtypes
