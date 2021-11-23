@@ -137,10 +137,10 @@ train.head()
 train.dtypes
 
 
-# In[20]:
+# In[22]:
 
 
-def clean_split_titanic_data(df):
+def clean_split_telco_data(df):
     ''' 
     This function runs both the wrangle_telco and train_validate_test_split functions.
     It takes in the original df and returns the split dfs train, validate, test (in that order).
@@ -150,13 +150,13 @@ def clean_split_titanic_data(df):
     return train, validate, test
 
 
-# In[16]:
+# In[23]:
 
 
-train, validate, test = clean_split_titanic_data(df)
+train, validate, test = clean_split_telco_data(df)
 
 
-# In[17]:
+# In[24]:
 
 
 train.head()
