@@ -1,6 +1,6 @@
- #Telco Classification Project 
+ Telco Classification Project 
 
-    ## About the Project 
+    About the Project 
 
     Project Goals
         My goal is to identify the drivers of churn at Telco and the liklihhood that a current customer will churn, so that we can develop custom solutions that increase retention. 
@@ -22,3 +22,19 @@
         Here is a list of every variable used in this project along with its meaning. 
 
      Steps to Reproduce 
+
+     The Plan 
+        -Acquire
+            - Create acuire_telco.py
+            - Add to github
+            - Aquire telco data in working notebook
+        -Prepare 
+            - Create prepare_telco.py 
+            - Add to github
+            - Prepare telco data in working notebook
+        - Explore (most of time spent here)
+            - Add 4 best asked/answered questions to report 
+                    - 2 analyzed through visuals/statistical tests
+                    - 2 just visuals
+        - Develop models
+            - Add 3 best models to report
