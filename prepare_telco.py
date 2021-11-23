@@ -30,13 +30,19 @@ df.head()
 df.dtypes
 
 
-# In[5]:
+# In[18]:
 
 
 def wrangle_telco(df):
     """
-    Queries the telco_churn database
-    Returns a df with 24 columns and conversion of service columns to 0,1 binary cols.
+    This function queries the new_telco_data and 
+    drops columns and whitespaces, 
+    converts to correct datatype, 
+    convert binary categorical variables to numeric,
+    gets dummies from non-binary object varibales,
+    concatenates dummy dataframe to original,
+    drops the object columns we created dummies from,
+    and returns a nice and clean telco df
     """
     df = acquire_telco.new_telco_data()
     
@@ -47,7 +53,7 @@ def wrangle_telco(df):
     df['total_charges'] = df['total_charges'].str.strip()
     df = df[df.total_charges != '']
     
-    # Convert to correct datatype
+    # Convert to correct datatype (object to float)
     df['total_charges'] = df.total_charges.astype(float)
     
     # Convert binary categorical variables to numeric
@@ -91,15 +97,15 @@ telco_cleaned.head()
 telco_cleaned.dtypes
 
 
-# In[8]:
+# In[19]:
 
 
 def train_validate_test_split(telco_cleaned, seed=123):
     '''
-    This function takes in a cleaned dataframe and a random seed, 
-    and splits the dataframe into 3 samples, a train, validate and test sample, 
-    The test is 20% of the data, the validate is 24% of the data, and the train is 56% of the data. 
-    The function returns 3 dataframes in the order of: train, validate and test. 
+    This function takes in a dataframe (df) and returns 3 dfs
+    (train, validate, and test) split 20%, 24%, 56% respectively. 
+    
+    Also takes in a random seed for replicating results.  
     '''
     train_and_validate, test = train_test_split(
         telco_cleaned, test_size=0.2, random_state=seed, stratify=telco_cleaned.churn
@@ -131,13 +137,13 @@ train.head()
 train.dtypes
 
 
-# In[15]:
+# In[20]:
 
 
 def clean_split_titanic_data(df):
-    '''
-    this function runs both the clean_titanic and train_validate_test_split functions, initially taking in the orginal
-    acquired dataframe as an argument and returning the 3 samples in order: train, validate, test. 
+    ''' 
+    This function runs both the wrangle_telco and train_validate_test_split functions.
+    It takes in the original df and returns the split dfs train, validate, test (in that order).
     '''
     telco_cleaned = wrangle_telco(df)
     train, validate, test = train_validate_test_split(telco_cleaned , seed=123)
