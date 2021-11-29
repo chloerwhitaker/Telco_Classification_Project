@@ -121,7 +121,7 @@ i   - mport seaborn as sns
             - markdown all processes
     
     Takeaways
-        _ We start loosing customers drastically after the fisrt month, and those that churn are most likely to leave in the 18th month.
+        _ We start losing customers drastically after the fisrt month, and those that churn are most likely to leave in the 18th month.
 
         - Customers paying for fiber optic internet service are more likely to churn than those who aren't.
 
